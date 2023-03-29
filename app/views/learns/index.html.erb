@@ -1,0 +1,27 @@
+<h1>勉強記録一覧</h1>
+
+<% if @learns.any? %>
+  <table class="table-sm">
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>勉強記録</th>
+        <th>メモ</th>
+        <th class="text-end"></th>
+        <th class="text-end"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @learns.each do |learn| %>
+        <tr>
+          <td><%= learn.studydate %></td>
+          <td><%= learn.content %></td>
+          <td class="text-end"><%= link_to '編集', edit_learn_path(learn), class: 'btn btn-success' %></td>
+          <td class="text-end"><%= link_to '削除', learn, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to '新しく勉強記録を作成する', new_learn_path, class: "btn btn-primary" %>
