@@ -49,6 +49,6 @@ class LearnsController < ApplicationController
 
   # Strong Parameter
   def learn_params
-    params.require(:learn).permit(:date, :content, :note)
+    params.require(:learn).permit(:studydate, :content)
   end
 end
